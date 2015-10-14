@@ -79,7 +79,7 @@
   border-radius: 150px;
   -webkit-border-radius: 150px;
 	-moz-border-radius: 150px;
-  background: url("http://www.seanpalvarez.com/images/me.jpg") no-repeat;
+  background: url("../images/me.jpg") no-repeat;
   box-shadow: 0 0 8px rgba(0, 0, 0, .8);
 	-webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
 	-moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
@@ -149,6 +149,7 @@
 #portfolio .portfolio-entry .portfolio-link .portfolio-caption .portfolio-caption-content h3 {
   margin-top: -12px;
   font-family: "Helvetica";
+  font-size: 1.5em;
   margin-bottom: 0;
   text-decoration: none;
 }
@@ -165,7 +166,7 @@
   color: #fff;
 }
 
-.portfolio-thumbnail img{
+.portfolio-thumbnail img {
   padding: 0;
   margin: 0;
   width: 100%;
@@ -220,26 +221,26 @@ hr {
 }
 
 .page-section#home {
-  background: url("http://www.seanpalvarez.com/images/homeBack.jpg") bottom center no-repeat;
+  background: url("../images/homeBack.jpg") bottom center no-repeat;
   background-attachment: fixed;
   background-size: cover;
   padding-top: 275px;
 }
 
 .page-section#about {
-  background: url("http://www.seanpalvarez.com/images/aboutBack.jpg") bottom center no-repeat;
+  background: url("../images/aboutBack.jpg") bottom center no-repeat;
   background-attachment: fixed;
   background-size: cover;
 }
 
 .page-section#portfolio {
-  background: url("http://www.seanpalvarez.com/images/portfolioBack.jpg") bottom center no-repeat;
+  background: url("../images/portfolioBack.jpg") bottom center no-repeat;
   background-attachment: fixed;
   background-size: cover;
 }
 
 .page-section#contact {
-  background: url("http://www.seanpalvarez.com/images/contactBack.jpg") bottom center no-repeat;
+  background: url("../images/contactBack.jpg") bottom center no-repeat;
   background-attachment: fixed;
   background-size: cover;
 }
