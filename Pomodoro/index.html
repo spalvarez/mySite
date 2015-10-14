@@ -2,17 +2,60 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-  	<title>Portfolio</title>
-  	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Portfolio</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-  	<link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
-  	<link rel="stylesheet" href="css/style.css">
+	<link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
+	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-	<canvas id="clockCanvas" width='300' height='300' class="clock-canvas"></canvas>
+	<div class='container-fluid'>
+		<div class='row'>
+			<div class='text-center'>
+				<h3>Pomodoro Clock</h3>
+				<h4>What is a pomodoro clock?</h4>
+				<p>A pomodoro clock is a way to get yourself moving with work or an activity.  Here's how it works: You set the session, which how long you want to work for.  This is traditionally 25 minutes.  Once that time is up, you rest and relax for a period of time, typically 5 minutes.  Rinse and repeat, that's it!  The idea is it's much easier to get started on something when you know you'll only do it for a short period until taking a break!  Use the clock below to give it a try!</p>
+				<!-- .text-center -->
+			</div>
+			<!-- row -->
+		</div>
+		<div class='row'>
+			<div class="col-xs-5 col-sm-offset-1 col-sm-3 col-md-offset-2 col-md-2 col-lg-2 col-lg-offset-3 break-label-div text-center">
+				Break Length
+				<!-- break-label-div -->
+			</div>
+			<div class="col-xs-5 col-xs-offset-2 col-sm-offset-4 col-sm-3 col-md-offset-4 col-md-2 col-lg-2 col-lg-offset-2 session-label-div text-center">
+				Session Length
+				<!-- session-label-div -->
+			</div>
+		</div>
+		<div class='row'>
+			<div class="col-xs-5 col-sm-offset-1 col-sm-3 col-md-offset-2 col-md-2 col-lg-@ col-lg-offset-3 break-length-div text-center">
+				<button id='decrease-break-button' class='decrease-break-button'>-</button>
+				<label id='breakLength' class='break-length'>5</label>
+				<button id='increase-break-button' class='increase-break-button'>+</button>
+				<!--.break-length-div -->
+			</div>
+			<div class="col-xs-5 col-xs-offset-2 col-sm-offset-4 col-sm-3 col-md-offset-4 col-md-2 col-lg-2 col-lg-offset-2 session-length-div text-center">
+				<button id='decrease-session-button' class='decrease-session-button'>-</button>
+				<label id='sessionLength' class='session-length'>25</label>
+				<button id='increase-session-button' class='increase-session-button'>+</button>
+				<!--.session-length-div -->
+			</div>
+			<!-- row -->
+		</div>
+		<div class='row'>
+			<div class='text-center canvas-div'>
+				<canvas id="clockCanvas" width='300' height='300' class="clock-canvas"></canvas>
+				<!-- canvas-div -->
+			</div>
+			<!-- .row -->
+		</div>
+		<!-- .container-fluid -->
+	</div>
 
 	<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-    <script src='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'></script>
-    <script src="js/index.js"></script>
+	<script src='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'></script>
+	<script src="js/index.js"></script>
 </body>
 </html>
