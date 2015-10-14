@@ -1,21 +1,13 @@
-$(function() {
-	var timerCanvas = document.getElementById('timerCanvas');
-	var myStopwatch = new stopwatch(timerCanvas);
-	myStopwatch.drawStopwatch(timerCanvas);
-/*
-	var canvas = document.getElementById('clockCanvas');
-	var ctx = canvas.getContext('2d');
-	var radius = canvas.height / 2;
-	ctx.translate(radius, radius);
-	radius = radius * 0.90;
-	//redraw once a second
-	setInterval(drawClock, 1000);
+function stopwatchSeconds(ctx, radius, count) {
+	this.radius = radius;
+	this.ctx = ctx;
+	this.count = count;
 
-	function drawClock() {
-		drawFace(ctx, radius);		
-		drawMinuteNumbers(ctx, radius);
-		drawSecondNumbers(ctx, radius);
-		drawHands(ctx, radius);
+	this.draw = function () {
+		drawFace(this.ctx, this.radius);
+		drawSecondNumbers(this.ctx, this.radius);
+		drawTics(this.ctx, this.radius);
+		drawTimerHand(this.ctx, this.radius, this.count);
 	}
 
 	function drawFace(ctx, radius) {
@@ -41,7 +33,7 @@ $(function() {
 		ctx.fill();
 	}
 
-	function drawMinuteNumbers(ctx, radius) {
+	function drawSecondNumbers(ctx, radius) {
 		var ang;
 		var num;
 		ctx.font = radius * 0.15 + 'px arial';
@@ -52,29 +44,24 @@ $(function() {
 			ctx.rotate(ang);
 			ctx.translate(0, -radius*0.78);
 			ctx.rotate(-ang);
-			ctx.fillText(num.toString(), 0, 0);
+			ctx.fillText((60 - (num * 5)).toString(), 0, 0);
 			ctx.rotate(ang);
 			ctx.translate(0, radius*0.78);
 			ctx.rotate(-ang);
 		}
 	}
 
-	function drawSecondNumbers(ctx, radius) {
+	function drawTics(ctx, radius) {
 		var ang;
 		var num;
 		ctx.font = radius * 0.04 + 'px arial';
 		ctx.textBaseline = 'middle';
 		ctx.textAlign = 'center';
 		for(num=1; num <= 60; num++) {
-			//if(num%5 === 0) {
-			//	continue;
-			//}
-
 			ang = num * Math.PI/30 ;
 			ctx.rotate(ang);
 			ctx.translate(0, -radius*0.86);
 			ctx.rotate(-ang);
-			//ctx.fillText(num.toString(), 0, 0);
 			var tickWidth = radius * 0.01;
 			if(num%5 === 0) {
 				tickWidth *= 2;
@@ -86,20 +73,9 @@ $(function() {
 		}
 	}
 
-	function drawHands(ctx, radius) {
-		var now = new Date();
-		var hour = now.getHours();
-		var minute = now.getMinutes();
-		var second = now.getSeconds();
-		//hour hand
-		hour = hour % 12;
-		hour = (hour * Math.PI/6) + (minute * Math.PI/(6*60));
-		drawHand(ctx, hour, radius * .5, radius*0.07);
-		//minute hand
-		minute = (minute * Math.PI / 30) + (second * Math.PI / (30*60));
-		drawHand(ctx, minute, radius*0.8, radius*0.07);
+	function drawTimerHand(ctx, radius, count) {
 		//second hand
-		second = (second * Math.PI / 30);
+		second = (count * Math.PI / 30);
 		drawHand(ctx, second, radius*0.9, radius*0.02);
 	}
 
@@ -113,5 +89,4 @@ $(function() {
 		ctx.stroke();
 		ctx.rotate(-pos);
 	}
-	*/
-});
+}
