@@ -1,0 +1,289 @@
+.header {
+  background: #222;
+}
+
+.header .navbar-brand {
+  font-weight: 900;
+  color: #006dcc;
+}
+
+.header .navbar {
+  margin: 0px;
+  padding-left: 3%;
+  border: none;
+}
+
+.header .navbar ul a {
+  color: #006dcc;
+}
+
+.page-section {
+  width: 100%;
+  min-height: 800px;
+  min-height: 100vh;
+  margin: 0;
+  padding-top: 50px;
+  border: none;
+}
+
+.page-section#home h2 {
+  font-size: 3em;
+  font-weight: 900;
+  color: #006dcc;
+  margin: 0;
+  text-shadow: 1px 1px 1px #fff;
+  text-align: center;
+}
+
+.page-section#about h2 {
+  color: #000
+  font-size: 2em;
+  font-weight: 900;
+  font-family: "arial-black";"
+}
+
+.page-section p {
+  color: #000;
+  font-family: "arial-black";
+  font-size: 1.2em;
+  padding: 0px;
+}
+
+.page-section p.sub-head {
+  color: #fff;
+}
+
+#about .about-well {
+  background-color: rgba(255,255,255,0.5);
+}
+
+#about .about-well li {
+   font-weight: 600;  
+}
+
+#about .about-well a {
+    color: #00f;
+}
+
+.page-section ul {
+  font-size: 1.1em;
+  margin: 0;
+  padding: 0;
+  padding-left: 2%;
+  color: #000;
+}
+
+.circle-picture {
+  height: 300px;
+  width: 300px;
+  border-radius: 150px;
+  -webkit-border-radius: 150px;
+	-moz-border-radius: 150px;
+  background: url("http://www.seanpalvarez.com/images/me.jpg") no-repeat;
+  box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+	-webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+	-moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+}
+
+#portfolio h2 {
+   font-weight: 900;
+   font-family: "arial-black";
+   font-color: #000;
+}
+
+#portfolio div[class^="col"] {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+#portfolio .portfolio-entry {
+  margin: 0 0 15px;
+  right: 0;
+  border: 1px outset rgba(255, 255, 255, 0.6);
+}
+
+#portfolio .portfolio-entry:hover {
+  transition: all 0.25s linear;
+  -webkit-transition: all .25s linear;
+  -moz-transition: all .25s linear;
+  box-shadow: 5px 10px 5px rgba(0,0,0,0.8);
+  -webkit-box-shadow: 5px 10px 5px rgba(0, 0, 0,0.8);
+	-moz-box-shadow: 5px 10px 5px rgba(0,0, 0,0.8);
+}
+
+#portfolio .portfolio-entry .portfolio-link {
+  display: block;
+  position: relative;
+  max-width: 400px;
+  padding-left: 3%;
+  padding-right: 3%;
+  margin: 0 auto;
+}
+
+#portfolio .portfolio-entry .portfolio-link .portfolio-caption {
+  background: rgba(0,0,0,0.7);
+  position: absolute;
+  width: 95%;
+  height: 100%;
+  opacity: 0;
+  transition: all ease .5s;
+  -webkit-transition: all ease .5s;
+  -moz-transition: all ease .5s,
+}
+
+#portfolio .portfolio-entry .portfolio-link .portfolio-caption:hover {
+  opacity: 1;
+}
+
+#portfolio .portfolio-entry .portfolio-link .portfolio-caption .portfolio-caption-content {
+  position: absolute;
+  width: 100%;
+  height: 20px;
+  font-size: 20px;
+  text-align: center;
+  top: 50%;
+  margin-top: -12px;
+  color: #fff;
+}
+
+#portfolio .portfolio-entry .portfolio-link .portfolio-caption .portfolio-caption-content h3 {
+  margin-top: -12px;
+  font-family: "Helvetica";
+  margin-bottom: 0;
+  text-decoration: none;
+}
+
+#portfolio .portfolio-entry .portfolio-link .portfolio-caption .portfolio-caption-content p {
+  margin-top: -12px;
+  font-size: 1em;
+  font-style: italic;
+  font-family: "Helvetica";
+  text-align: center;
+  text-decoration: none;
+  margin-top: 0;
+  padding-top: 0;
+  color: #fff;
+}
+
+.portfolio-thumbnail img{
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+#contact .contact-email {
+  text-align: center;
+}
+
+#contact .contact-text {
+  background-color: rgba(0,0,0,0.4); 
+  margin-top: 10%;
+}
+
+#contact .contact-text h3 {
+  font-size: 3em;
+  color: #fff;
+}
+#contact .contact-email a {
+  font-size: 2em;
+  color: #fff
+}
+
+#contact .contact-text #opener {
+  color: #fff;
+  font-size: 2em;
+}
+
+#contact .contact-text #opener:hover {
+  cursor: pointer;
+}
+
+#contact .contact-btns {
+  margin-top: 5%;
+}
+
+#contact .contact-btns button {
+   border-color: #fff;
+}
+
+#contact .contact-btns a {
+  color: #fff;
+  font-size: 1.2em;
+  text-decoration: none;
+}
+
+hr {
+  color: #000;
+  opacity: 25%;
+  height: 3px;
+  margin: 5px 0 20px 0;
+}
+
+.page-section#home {
+  background: url("http://www.seanpalvarez.com/images/homeBack.jpg") bottom center no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  padding-top: 275px;
+}
+
+.page-section#about {
+  background: url("http://www.seanpalvarez.com/images/aboutBack.jpg") bottom center no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.page-section#portfolio {
+  background: url("http://www.seanpalvarez.com/images/portfolioBack.jpg") bottom center no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.page-section#contact {
+  background: url("http://www.seanpalvarez.com/images/contactBack.jpg") bottom center no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+#home .btn-primary > a {
+  color: #fff;
+  font-weight: 200;
+  font-family: "arial-black";
+  text-decoration:none;
+}
+
+@media (min-width: 768px) {
+  .header .navbar-brand {
+    padding-left: 0;
+  }
+  .navbar-nav {
+    float: right;
+  }
+}
+@media (max-width: 480px) {
+  .page-section h2 {
+    font-size: 2em;
+  }
+  .page-section p {
+    font-size: 1em;
+    margin: 0 0 20px;
+  }
+}
+
+footer {
+  background: lightgrey;
+  min-height: 150px;
+}
+
+footer ul {
+  padding-top: 5%;
+  font-size: 1.2em;
+}
+
+footer p {
+  font-weight: 900;
+  font-size: 0.8em;
+  font-family: "Helvetica";
+  color: grey;
+  margin-left: 15px;
+  margin-bottom: 0;
+}
