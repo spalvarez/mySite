@@ -1,9 +1,41 @@
-function stopwatchSeconds(ctx, radius, count) {
-	this.radius = radius;
+function stopwatchSeconds(ctx, radius, count, sessionMinutes, breakMinutes) {
 	this.ctx = ctx;
+	this.radius = radius;
 	this.count = count;
+	this.sessionMinutes = sessionMinutes;
+	this.breakMinutes = breakMinutes;
+	this.onBreak = false;
+
+	var sessionWatch = new stopwatchMinutes(ctx, radius * 0.20, sessionMinutes);
+	var breakWatch = new stopwatchMinutes(ctx, radius * 0.20, breakMinutes);
 
 	this.draw = function () {
+		if(this.onBreak) {
+			breakColor = 'yellow';
+			sessionColor = 'white';
+		}
+		else {
+			breakColor = 'white';
+			sessionColor = 'yellow';
+		}
+		ctx.save();
+		ctx.translate(-radius/2 + 10, 0);
+		breakWatch.ctx = ctx;
+		breakWatch.count = this.breakMinutes;
+		breakWatch.draw(breakColor);
+		ctx.font = radius*0.1 + 'px arial';
+		ctx.fillText('Break', 0, (-radius/4) - 2);
+		ctx.restore();
+
+		ctx.save();
+		ctx.translate(radius/2 - 10, 0);
+		sessionWatch.ctx = ctx;
+		sessionWatch.count = this.sessionMinutes;
+		sessionWatch.draw(sessionColor);
+		ctx.font = radius*0.1 + 'px arial';
+		ctx.fillText('Session', 0, (-radius/4) - 2);
+		ctx.restore();
+
 		drawFace(this.ctx, this.radius);
 		drawSecondNumbers(this.ctx, this.radius);
 		drawTics(this.ctx, this.radius);
@@ -15,7 +47,7 @@ function stopwatchSeconds(ctx, radius, count) {
 
 		ctx.beginPath();
 		ctx.arc(0, 0, radius, 0, 2 * Math.PI);
-		ctx.fillStyle = '#fff';
+		ctx.fillStyle = 'transparent';
 		ctx.fill();
 		
 
