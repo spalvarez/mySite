@@ -5,6 +5,7 @@ function stopwatch(canvas, sessionMinutes, breakMinutes) {
 	this.breakMinutes = breakMinutes;
 	var innerStopwatch;
 	var onBreak = false;
+	var timerInterval;
 
 	this.drawStopwatch = function() {
 
@@ -15,7 +16,14 @@ function stopwatch(canvas, sessionMinutes, breakMinutes) {
 
 		innerStopwatch = new stopwatchSeconds(ctx, radius, 0, this.sessionMinutes, this.breakMinutes);
 		innerStopwatch.draw();
-		setInterval(updateClock, 1000);
+	}
+
+	this.startTimer = function() {
+		timerInterval = setInterval(updateClock, 1000);
+	}
+
+	this.stopTimer = function() {
+		clearInterval(timerInterval);
 	}
 
 	function updateClock(){
