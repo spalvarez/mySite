@@ -4,7 +4,7 @@ function stopwatchMinutes(ctx, radius, count) {
 	this.count = count;
 	this.totalMinutes = count;
 
-	this.draw = function (color) {
+	this.draw = function drawMinutes(color) {
 		drawFace(this.ctx, this.radius, color);
 		drawTics(this.ctx, this.radius, this.totalMinutes);
 		drawTimerHand(this.ctx, this.radius, this.count, this.totalMinutes);

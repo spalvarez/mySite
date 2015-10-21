@@ -6,8 +6,9 @@ function stopwatch(canvas, sessionMinutes, breakMinutes) {
 	var innerStopwatch;
 	var onBreak = false;
 	var timerInterval;
+	var snd;
 
-	this.drawStopwatch = function() {
+	this.drawStopwatch = function drawWatch() {
 
 		var ctx = canvas.getContext('2d');
 		var radius = canvas.height / 2;
@@ -18,11 +19,20 @@ function stopwatch(canvas, sessionMinutes, breakMinutes) {
 		innerStopwatch.draw();
 	}
 
-	this.startTimer = function() {
+	this.resetStopwatch = function resetWatch(breakLength, sessionLength) {
+		this.breakMinutes = breakLength;
+		this.sessionMinutes = sessionLength;
+		var ctx = canvas.getContext('2d');
+		ctx.translate(-(canvas.width/2), -(canvas.height/2))
+		ctx.clearRect(0,0, canvas.width, canvas.height);
+		this.drawStopwatch();
+	}
+
+	this.startTimer = function startTime() {
 		timerInterval = setInterval(updateClock, 1000);
 	}
 
-	this.stopTimer = function() {
+	this.stopTimer = function stopTime() {
 		clearInterval(timerInterval);
 	}
 
@@ -30,6 +40,7 @@ function stopwatch(canvas, sessionMinutes, breakMinutes) {
 		if(!onBreak && innerStopwatch.count === 59 &&innerStopwatch.sessionMinutes === 1) {
 
 			onBreak = true;
+			playSound();
 			innerStopwatch.onBreak = true;
 			innerStopwatch.count = 0;
 			innerStopwatch.sessionMinutes = this.sessionMinutes;
@@ -37,6 +48,7 @@ function stopwatch(canvas, sessionMinutes, breakMinutes) {
 		else if(onBreak && innerStopwatch.count == 59 && innerStopwatch.breakMinutes == 1) {
 
 			onBreak = false;
+			playSound();
 			innerStopwatch.onBreak = false;
 			innerStopwatch.count = 0;
 			innerStopwatch.breakMinutes = this.breakMinutes;
@@ -58,5 +70,11 @@ function stopwatch(canvas, sessionMinutes, breakMinutes) {
 		var ctx = canvas.getContext('2d');
 		ctx.clearRect(-(canvas.width/2),-(canvas.height/2), canvas.width, canvas.height);
 		innerStopwatch.draw();
+	}
+
+	function playSound() {
+		// buffers automatically when created
+		snd = new Audio("../audio/file.wav"); 
+		snd.play();
 	}
 }

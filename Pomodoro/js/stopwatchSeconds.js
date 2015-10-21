@@ -9,7 +9,7 @@ function stopwatchSeconds(ctx, radius, count, sessionMinutes, breakMinutes) {
 	var sessionWatch = new stopwatchMinutes(ctx, radius * 0.20, sessionMinutes);
 	var breakWatch = new stopwatchMinutes(ctx, radius * 0.20, breakMinutes);
 
-	this.draw = function () {
+	this.draw = function drawSeconds() {
 		if(this.onBreak) {
 			breakColor = 'yellow';
 			sessionColor = 'white';

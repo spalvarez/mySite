@@ -3,13 +3,13 @@ $(function() {
 	var breakLength = $('#breakLength').text();
 	var sessionLength = $('#sessionLength').text();
 	var myStopwatch = new stopwatch(timerCanvas, 25, 5);
-	myStopwatch.drawStopwatch(timerCanvas);
+	myStopwatch.drawStopwatch();
 
 	$('#decrease-break-button').click(decreaseBreakLength);
 	$('#increase-break-button').click(increaseBreakLength);
 	$('#decrease-session-button').click(decreaseSessionLength);
 	$('#increase-session-button').click(increaseSessionLength);
-	$('.start-button').click(function() {
+	$('.start-button').click(function startClick() {
 		$(this).toggleClass('on');
 
 		if($(this).hasClass('on')) {
@@ -37,10 +37,10 @@ $(function() {
 	}
 
 	function decreaseBreakLength() {
-		if(parseInt(breakLength) > 0) {
+		if(parseInt(breakLength) > 1) {
 			breakLength--;
 			$('#breakLength').text(breakLength);
-			//redrawClock();
+			redrawClock();
 		}
 	}
 
@@ -48,15 +48,15 @@ $(function() {
 		if(parseInt(breakLength) < 90) {
 			breakLength++;
 			$('#breakLength').text(breakLength);
-			//redrawClock();
+			redrawClock();
 		}
 	}
 
 	function decreaseSessionLength() {
-		if(parseInt(sessionLength) > 0) {
+		if(parseInt(sessionLength) > 1) {
 			sessionLength--;
 			$('#sessionLength').text(sessionLength);
-			//redrawClock();
+			redrawClock();
 		}
 	}
 
@@ -64,13 +64,11 @@ $(function() {
 		if(parseInt(sessionLength) < 90) {
 			sessionLength++;
 			$('#sessionLength').text(sessionLength);
-			//redrawClock();
+			redrawClock();
 		}
 	}
 
 	function redrawClock() {
-		myStopwatch.breakLength = breakLength;
-		myStopwatch.sessionLength = sessionLength;
-		myStopwatch.drawStopwatch(timerCanvas);
+		myStopwatch.resetStopwatch(breakLength, sessionLength);
 	}
 });
