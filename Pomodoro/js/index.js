@@ -1,8 +1,14 @@
 $(function() {
 	var timerCanvas = document.getElementById('timerCanvas');
+	var breakLength = $('#breakLength').text();
+	var sessionLength = $('#sessionLength').text();
 	var myStopwatch = new stopwatch(timerCanvas, 25, 5);
 	myStopwatch.drawStopwatch(timerCanvas);
 
+	$('#decrease-break-button').click(decreaseBreakLength);
+	$('#increase-break-button').click(increaseBreakLength);
+	$('#decrease-session-button').click(decreaseSessionLength);
+	$('#increase-session-button').click(increaseSessionLength);
 	$('.start-button').click(function() {
 		$(this).toggleClass('on');
 
@@ -28,5 +34,43 @@ $(function() {
 		$('.session-label-div').css('visibility','visible');
 		$('.break-length-div').css('visibility','visible');
 		$('.session-length-div').css('visibility','visible');
+	}
+
+	function decreaseBreakLength() {
+		if(parseInt(breakLength) > 0) {
+			breakLength--;
+			$('#breakLength').text(breakLength);
+			//redrawClock();
+		}
+	}
+
+	function increaseBreakLength() {
+		if(parseInt(breakLength) < 90) {
+			breakLength++;
+			$('#breakLength').text(breakLength);
+			//redrawClock();
+		}
+	}
+
+	function decreaseSessionLength() {
+		if(parseInt(sessionLength) > 0) {
+			sessionLength--;
+			$('#sessionLength').text(sessionLength);
+			//redrawClock();
+		}
+	}
+
+	function increaseSessionLength() {
+		if(parseInt(sessionLength) < 90) {
+			sessionLength++;
+			$('#sessionLength').text(sessionLength);
+			//redrawClock();
+		}
+	}
+
+	function redrawClock() {
+		myStopwatch.breakLength = breakLength;
+		myStopwatch.sessionLength = sessionLength;
+		myStopwatch.drawStopwatch(timerCanvas);
 	}
 });
