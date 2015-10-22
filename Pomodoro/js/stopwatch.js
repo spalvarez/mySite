@@ -9,7 +9,6 @@ function stopwatch(canvas, sessionMinutes, breakMinutes) {
 	var snd;
 
 	this.drawStopwatch = function drawWatch() {
-
 		var ctx = canvas.getContext('2d');
 		var radius = canvas.height / 2;
 		ctx.translate(radius, radius);
@@ -29,21 +28,33 @@ function stopwatch(canvas, sessionMinutes, breakMinutes) {
 	}
 
 	this.startTimer = function startTime() {
-		timerInterval = setInterval(updateClock, 1000);
+		timerInterval = setInterval(updateClock, 1000, this.sessionMinutes, this.breakMinutes);
 	}
 
 	this.stopTimer = function stopTime() {
 		clearInterval(timerInterval);
 	}
 
-	function updateClock(){
+	function updateClock(sessionMinutes, breakMinutes){
 		if(!onBreak && innerStopwatch.count === 59 &&innerStopwatch.sessionMinutes === 1) {
 
 			onBreak = true;
 			playSound();
 			innerStopwatch.onBreak = true;
 			innerStopwatch.count = 0;
-			innerStopwatch.sessionMinutes = this.sessionMinutes;
+			if(sessionMinutes === 1) {
+				innerStopwatch.sessionMinutes = 2;
+			}
+			else {
+				innerStopwatch.sessionMinutes = sessionMinutes;
+			}
+			if(breakMinutes === 1) {
+				innerStopwatch.breakMinutes = breakMinutes;
+			}
+			else {
+				innerStopwatch.breakMinutes = 2;
+			}
+			
 		}
 		else if(onBreak && innerStopwatch.count == 59 && innerStopwatch.breakMinutes == 1) {
 
@@ -51,7 +62,18 @@ function stopwatch(canvas, sessionMinutes, breakMinutes) {
 			playSound();
 			innerStopwatch.onBreak = false;
 			innerStopwatch.count = 0;
-			innerStopwatch.breakMinutes = this.breakMinutes;
+			if(sessionMinutes === 1) {
+				innerStopwatch.sessionMinutes = sessionMinutes;
+			}
+			else {
+				innerStopwatch.sessionMinutes = 2;
+			}
+			if(breakMinutes === 1) {
+				innerStopwatch.breakMinutes = 2;
+			}
+			else {
+				innerStopwatch.breakMinutes = breakMinutes;
+			}
 		}
 		else if(innerStopwatch.count === 59 && !onBreak) {
 
@@ -67,6 +89,9 @@ function stopwatch(canvas, sessionMinutes, breakMinutes) {
 			innerStopwatch.count++;
 		}
 
+		console.log('CurrentSession: ' + innerStopwatch.sessionMinutes + ' Current Break: ' + innerStopwatch.breakMinutes + '\n' +
+					' Total Session: ' + sessionMinutes + ' Total Break: ' + breakMinutes);
+
 		var ctx = canvas.getContext('2d');
 		ctx.clearRect(-(canvas.width/2),-(canvas.height/2), canvas.width, canvas.height);
 		innerStopwatch.draw();
@@ -74,7 +99,7 @@ function stopwatch(canvas, sessionMinutes, breakMinutes) {
 
 	function playSound() {
 		// buffers automatically when created
-		snd = new Audio("../audio/file.wav"); 
+		snd = new Audio("audio/Ship_Bell-Mike_Koenig-1911209136.mp3"); 
 		snd.play();
 	}
 }

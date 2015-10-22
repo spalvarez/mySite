@@ -33,6 +33,10 @@ function stopwatchMinutes(ctx, radius, count) {
 		ctx.font = radius * 0.04 + 'px arial';
 		ctx.textBaseline = 'middle';
 		ctx.textAlign = 'center';
+		if(minutes === 1)
+		{
+			minutes++;
+		}
 		for(num=1; num <= minutes; num++) {
 			ang = num * (360/minutes) * (Math.PI/180);
 			ctx.rotate(ang);
@@ -51,6 +55,10 @@ function stopwatchMinutes(ctx, radius, count) {
 
 	function drawTimerHand(ctx, radius, count, minutes) {
 		//second hand
+		if(minutes ===1 && count === 1)
+		{
+			minutes++;
+		}
 		second = (minutes-count) * (360/minutes) * (Math.PI / 180);
 		drawHand(ctx, second, radius*0.9, radius*0.02);
 	}
