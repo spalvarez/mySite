@@ -1,3 +1,44 @@
+body {
+  background: url("../images/pattern.jpg");
+}
+.header-block h3 {
+  font-size: 6em;
+  font-weight: 800;
+  font-family: 'Lobster', cursive;
+}
+.button-headers {
+  font-size: 2em;
+  font-weight: 800;
+  font-family: 'Lobster', cursive;
+}
+.button-divs label {
+  font-size: 2em;
+  font-weight: 800;
+  font-family: 'Lobster', cursive;
+}
+.button-divs button {
+  font-size: 2em;
+  font-weight: 800;
+  font-family: 'Lobster', cursive;
+  border: none;
+  background-color: transparent;
+}
+.button-divs button:focus {
+  outline: 0;
+}
+.info-block h4 {
+  padding-top: 1%;
+  font-size: 2em;
+  font-weight: 600;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+.info-block .intro p {
+  font-size: 1.3em;
+  font-weight: 500;
+  font-family: 'Times New Roman';
+  padding-bottom: 0.5%;
+  text-align: left;
+}
 @font-face {
   font-family: "FontAwesome";
   src: url("../fonts/fontawesome-webfont.eot");

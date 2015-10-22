@@ -6,20 +6,20 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
+	<link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 	<div class='container-fluid'>
 		<div class='row'>
-			<div class='text-center'>
+			<div class='text-center header-block'>
 				<h3>Pomodoro Clock</h3>
-				<h4>What is a pomodoro clock?</h4>
-				<p>A pomodoro clock is a way to get yourself moving with work or an activity.  Here's how it works: You set the session, which how long you want to work for.  This is traditionally 25 minutes.  Once that time is up, you rest and relax for a period of time, typically 5 minutes.  Rinse and repeat, that's it!  The idea is it's much easier to get started on something when you know you'll only do it for a short period until taking a break!  Use the clock below to give it a try!</p>
-				<!-- .text-center -->
+				<!-- .header-block -->
 			</div>
 			<!-- row -->
 		</div>
-		<div class='row'>
+		<div class='row button-headers'>
 			<div class="col-xs-4 col-xs-offset-1 col-sm-2 col-sm-offset-3 col-md-2 col-md-offset-3 col-lg-2 col-lg-offset-3 break-label-div text-center">
 				Break Length
 				<!-- break-label-div -->
@@ -30,7 +30,7 @@
 				<!-- session-label-div -->
 			</div>
 		</div>
-		<div class='row'>
+		<div class='row button-divs'>
 			<div class="col-xs-4 col-xs-offset-1 col-sm-2 col-sm-offset-3 col-md-2 col-md-offset-3 col-lg-2 col-lg-offset-3 break-length-div text-center">
 				<button id='decrease-break-button' class='decrease-break-button'>-</button>
 				<label id='breakLength' class='break-length'>5</label>
@@ -58,6 +58,16 @@
 				<!-- canvas-div -->
 			</div>
 			<!-- .row -->
+		</div>
+		<div class='row'>
+			<div class='text-center info-block'>
+				<h4>What is a pomodoro clock?</h4>
+				<div class="intro col-sm-offset-1 col-sm-10 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
+					<p>A pomodoro clock is a way to get yourself moving with work or an activity.  Here's how it works: You set the session, which how long you want to work for.  This is traditionally 25 minutes.  Once that time is up, you rest and relax for a period of time, typically 5 minutes.  Rinse and repeat, that's it!  The idea is it's much easier to get started on something when you know you'll only do it for a short period until taking a break!  Use the clock below to give it a try!</p>
+				</div>
+				<!-- info-block -->
+			</div>
+			<!-- row -->
 		</div>
 		<!-- .container-fluid -->
 	</div>
