@@ -45,14 +45,11 @@ function stopwatch(canvas, sessionMinutes, breakMinutes) {
 			if(sessionMinutes === 1) {
 				innerStopwatch.sessionMinutes = 2;
 			}
-			else {
+			else if(sessionMinutes !== 1){
 				innerStopwatch.sessionMinutes = sessionMinutes;
 			}
 			if(breakMinutes === 1) {
-				innerStopwatch.breakMinutes = breakMinutes;
-			}
-			else {
-				innerStopwatch.breakMinutes = 2;
+				innerStopwatch.breakMinutes = 1;
 			}
 			
 		}
@@ -62,17 +59,14 @@ function stopwatch(canvas, sessionMinutes, breakMinutes) {
 			playSound();
 			innerStopwatch.onBreak = false;
 			innerStopwatch.count = 0;
-			if(sessionMinutes === 1) {
-				innerStopwatch.sessionMinutes = sessionMinutes;
-			}
-			else {
-				innerStopwatch.sessionMinutes = 2;
-			}
 			if(breakMinutes === 1) {
 				innerStopwatch.breakMinutes = 2;
 			}
-			else {
+			else if(breakMinutes !== 1) {
 				innerStopwatch.breakMinutes = breakMinutes;
+			}
+			if(sessionMinutes === 1) {
+				innerStopwatch.sessionMinutes = 1;
 			}
 		}
 		else if(innerStopwatch.count === 59 && !onBreak) {
