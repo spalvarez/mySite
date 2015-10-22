@@ -131,6 +131,11 @@
   -moz-transition: all ease .5s,
 }
 
+
+#portfolio .portfolio-entry .portfolio-link img {
+  height: 250px;
+}
+
 #portfolio .portfolio-entry .portfolio-link .portfolio-caption:hover {
   opacity: 1;
 }
